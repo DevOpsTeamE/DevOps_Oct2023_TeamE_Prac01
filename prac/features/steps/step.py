@@ -61,16 +61,12 @@ def clickOnToy(context):
         context.driver.switch_to.frame(iframe)
         context.driver.execute_script("arguments[0].scrollIntoView();", add_to_cart_element)
 
-        try:
-            WebDriverWait(context.driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "notification__message")))
-        except TimeoutException:
-            pass
+        WebDriverWait(context.driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "notification__message")))
+
         WebDriverWait(context.driver, 15).until(EC.element_to_be_clickable((By.ID, "AddToCart-product-template"))).click()
         context.driver.switch_to.default_content()
 
     except NoSuchElementException:
-        context.driver.execute_script("arguments[0].scrollIntoView();", add_to_cart_element)
-        WebDriverWait(context.driver, 15).until(EC.element_to_be_clickable((By.ID, "AddToCart-product-template"))).click()
         pass
     
 
@@ -79,5 +75,5 @@ def checkout(context):
     context.driver.implicitly_wait(10)
     cart_element = context.driver.find_element(By.CSS_SELECTOR, "svg.icon.icon-cart")
     context.driver.execute_script("arguments[0].scrollIntoView();", cart_element)
-    WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "svg.icon.icon-cart"))).click()()
+    WebDriverWait(context.driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "svg.icon.icon-cart"))).click()
 
