@@ -1,4 +1,4 @@
-Feature: Test Toyster website
+Feature: View toy in category
     Scenario: View Toys in G.I. Joe Categories
         Given   Firefox browser is Launched
         When    Open Toyster page
@@ -8,6 +8,5 @@ Feature: Test Toyster website
         And     Click "All" in the dropdown list
         Then    Click G.I. Joe option
         And     Close browser
-
 
         
