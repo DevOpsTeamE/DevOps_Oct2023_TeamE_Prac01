@@ -54,30 +54,6 @@ def clickOnToy(context):
     add_to_cart_element = context.driver.find_element(By.XPATH, "/html/body/div[3]/main/div[1]/div/div/div[2]/div/form/div[2]/button[2]")
     add_to_cart_element.click()
     
-    
-""" @then(u'Click a toy and add to cart')
-def clickOnToy(context):
-    context.driver.find_element(By.XPATH,"/html/body/div[3]/main/div/div[1]/div[8]/a").click()
-    context.driver.implicitly_wait(5)
-    context.driver.find_element(By.XPATH,"/html/body/div[3]/main/div[1]/div/div/div[2]/div/form/div[1]/div/button[2]").click() 
-    add_to_cart_element = context.driver.find_element(By.ID, "AddToCart-product-template")
-    
-
-    WebDriverWait(context.driver, 15).until(EC.element_to_be_clickable((By.ID, "AddToCart-product-template"))).click()
-    try:
-        context.driver.implicitly_wait(5)
-        iframe = context.driver.find_element(By.ID, "paypal-offers--iframe-2f5ec70b-03a8-4038-bb69-850bd4b6e65f")
-        context.driver.switch_to.frame(iframe)
-        context.driver.execute_script("arguments[0].scrollIntoView();", add_to_cart_element)
-
-        WebDriverWait(context.driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "notification__message")))
-
-        WebDriverWait(context.driver, 15).until(EC.element_to_be_clickable((By.ID, "AddToCart-product-template"))).click()
-        context.driver.switch_to.default_content()
-
-    except NoSuchElementException:
-        pass
-     """
 
 @then(u'Checkout cart')
 def checkout(context):
