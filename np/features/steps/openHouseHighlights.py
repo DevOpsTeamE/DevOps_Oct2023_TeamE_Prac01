@@ -21,7 +21,10 @@ def step_impl(context):
 
 @then(u'Click "Find Your Dream Course"')
 def step_impl(context):
-    # highlightLink = context.driver.find_element(By.XPATH, '/html/body/main/div[1]/div/div[4]/div[1]/div[2]')
-    # highlightLink.click()
     context.driver.find_element(By.XPATH,'/html/body/main/div[1]/div/div[1]/div[1]/div[1]').click()
     sleep(5)
+
+
+@then(u'Close google browser')
+def closeBrowser(context):
+    context.driver.close()
